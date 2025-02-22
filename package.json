@@ -1,0 +1,24 @@
+{
+  "name": "bounce-type",
+  "version": "1.0.0",
+  "description": "Library to add support for the bounce type accessibility feature on web elements like text input fields.",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "scripts": {
+    "build": "tsc && tsc --project tsconfig.cjs.json"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  },
+  "author": "Antriksh Yadav",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Antrikshy/bounce-type-js.git"
+  }
+}
