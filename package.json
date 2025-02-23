@@ -1,7 +1,7 @@
 {
-  "name": "bounce-type",
+  "name": "bounce-keys",
   "version": "1.0.0",
-  "description": "Library to add support for the bounce type accessibility feature on web elements like text input fields.",
+  "description": "Library to add support for the bounce keys accessibility feature on web elements like text input fields.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -23,6 +23,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Antrikshy/bounce-type-js.git"
+    "url": "git+https://github.com/Antrikshy/bounce-keys-js.git"
   }
 }

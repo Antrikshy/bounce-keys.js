@@ -3,7 +3,7 @@ import MiniSpec from "minispec";
 import { describe, it } from "minispec";
 import { JSDOM } from "jsdom";
 
-import { BounceType, BounceTypeProps } from "../src/main";
+import { BounceKeys } from "../src/main";
 
 function testEnvWithInput() {
   const dom = new JSDOM("<input type='text'/>");
@@ -21,7 +21,7 @@ function keydownEvent(window, code: string) {
 describe("Basic usage, without optional props", async () => {
   it("prevents successive repeats", async () => {
     // Setup
-    const underTest = new BounceType({ bounceWindow: 10000 });
+    const underTest = new BounceKeys({ bounceWindow: 10000 });
     const { window, document } = testEnvWithInput();
     const inputEl = document.querySelector("input");
     inputEl.addEventListener("keydown", underTest);
@@ -42,7 +42,7 @@ describe("Basic usage, without optional props", async () => {
 
   it("lets through delayed repeats", async () => {
     // Setup
-    const underTest = new BounceType({ bounceWindow: 100 });
+    const underTest = new BounceKeys({ bounceWindow: 100 });
     const { window, document } = testEnvWithInput();
     const inputEl = document.querySelector("input");
     inputEl.addEventListener("keydown", underTest);
@@ -66,7 +66,7 @@ describe("Basic usage, without optional props", async () => {
 describe("With repeatOnly enabled", async () => {
   it("lets through interleaved repeats", async () => {
     // Setup
-    const underTest = new BounceType({bounceWindow: 1000, repeatOnly: true});
+    const underTest = new BounceKeys({bounceWindow: 1000, repeatOnly: true});
     const { window, document } = testEnvWithInput();
     const inputEl = document.querySelector("input");
     inputEl.addEventListener("keydown", underTest);
@@ -87,7 +87,7 @@ describe("With repeatOnly enabled", async () => {
 
   it("still prevents successive repeats", async () => {
     // Setup
-    const underTest = new BounceType({bounceWindow: 1000, repeatOnly: true});
+    const underTest = new BounceKeys({bounceWindow: 1000, repeatOnly: true});
     const { window, document } = testEnvWithInput();
     const inputEl = document.querySelector("input");
     inputEl.addEventListener("keydown", underTest);
@@ -111,7 +111,7 @@ describe("With repeatOnly enabled", async () => {
 
   it("still prevents delayed repeats", async () => {
     // Setup
-    const underTest = new BounceType({ bounceWindow: 100 });
+    const underTest = new BounceKeys({ bounceWindow: 100 });
     const { window, document } = testEnvWithInput();
     const inputEl = document.querySelector("input");
     inputEl.addEventListener("keydown", underTest);
@@ -135,7 +135,7 @@ describe("With repeatOnly enabled", async () => {
 describe("With key codes ignored", async () => {
   it("lets through repeats of ignored keys", async () => {
     // Setup
-    const underTest = new BounceType({bounceWindow: 1000, ignoredKeyCodes: ["Backspace"]});
+    const underTest = new BounceKeys({bounceWindow: 1000, ignoredKeyCodes: ["Backspace"]});
     const { window, document } = testEnvWithInput();
     const inputEl = document.querySelector("input");
     inputEl.addEventListener("keydown", underTest);
@@ -153,7 +153,7 @@ describe("With key codes ignored", async () => {
 
   it("still prevents successive repeats of other keys", async () => {
     // Setup
-    const underTest = new BounceType({bounceWindow: 1000, ignoredKeyCodes: ["Backspace"]});
+    const underTest = new BounceKeys({bounceWindow: 1000, ignoredKeyCodes: ["Backspace"]});
     const { window, document } = testEnvWithInput();
     const inputEl = document.querySelector("input");
     inputEl.addEventListener("keydown", underTest);

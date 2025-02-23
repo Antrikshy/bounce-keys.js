@@ -1,4 +1,4 @@
-export interface BounceTypeProps {
+export interface BounceKeysProps {
   // Time window in milliseconds
   bounceWindow: number,
   // Setting to true will only block successive repeat presses, and not
@@ -10,7 +10,7 @@ export interface BounceTypeProps {
   ignoredKeyCodes?: Set<string> | string[];
 };
 
-export class BounceType {
+export class BounceKeys {
   private readonly bounceWindow: number;
   private readonly repeatOnly: boolean;
   private readonly ignoredKeyCodes: Set<string>;
@@ -18,7 +18,7 @@ export class BounceType {
   private debounceMap: Record<string, number> = {};
   private lastPressKeyCode: string;
 
-  public constructor(props: BounceTypeProps) {
+  public constructor(props: BounceKeysProps) {
     this.bounceWindow = props.bounceWindow;
     this.repeatOnly = !!props.repeatOnly;
     this.ignoredKeyCodes = new Set(props.ignoredKeyCodes);
