@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "nodenext",
+    "module": "NodeNext",
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "*": ["../node_modules/*"]
+    }
+  },
+  "include": ["**/*.ts"],
+}
