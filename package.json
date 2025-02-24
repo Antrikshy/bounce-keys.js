@@ -2,12 +2,12 @@
   "name": "bounce-keys",
   "version": "1.0.0",
   "description": "Library to add support for the bounce keys accessibility feature on web elements like text input fields.",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
+  "main": "dist/cjs/main.js",
+  "module": "dist/esm/main.js",
+  "types": "dist/esm/main.d.ts",
   "exports": {
-    "import": "./dist/esm/index.js",
-    "require": "./dist/cjs/index.js"
+    "import": "./dist/esm/main.js",
+    "require": "./dist/cjs/main.js"
   },
   "scripts": {
     "build": "tsc && tsc --project tsconfig.cjs.json",
@@ -20,7 +20,7 @@
     "typescript": "^5.7.3"
   },
   "author": "Antriksh Yadav",
-  "license": "MIT",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Antrikshy/bounce-keys-js.git"
