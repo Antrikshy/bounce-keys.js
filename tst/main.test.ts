@@ -7,6 +7,7 @@ import { BounceKeys } from "../src/main";
 
 function testEnvWithInput() {
   const dom = new JSDOM("<input type='text'/>");
+  global.KeyboardEvent = dom.window.KeyboardEvent;
   return {
     dom: dom,
     window: dom.window,
