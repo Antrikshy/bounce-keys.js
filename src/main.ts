@@ -25,6 +25,10 @@ export class BounceKeys {
   }
 
   public handleEvent(e: KeyboardEvent) {
+    if (!(e instanceof KeyboardEvent)) {
+      throw new TypeError("BounceKeys can only be used on listeners that emit KeyboardEvent.");
+    }
+
     const currentPressKeyCode = e.code;
     const currentPressTime = performance.now();
 
