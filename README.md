@@ -120,3 +120,38 @@ bounce-keys supports up to four props, one of which is required.
 | `repeatOnly` | `boolean` (optional) | If `true`, only successive repeats are blocked. For ex. typing "aaaaa" successively will register only one press, but typing "ababa" will register five times. |
 | `shouldEmitBlockEvents` | `boolean` (optional) | If `true`, emits a custom event `"bounce-keys:blocked"` when a key press is blocked. Useful for adding custom behavior like audio cues. |
 | `ignoredKeyCodes` | `string[] \| Set<string>` (optional) | Array or set of key code strings that this library will ignore in its block logic. bounce-type relies on the `code` property of `KeyboardEvent`s. [See on MDN](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code). |
+
+
+## Development
+
+### Quickstart
+
+```
+npm run build
+```
+
+to compile TypeScript to a dist/ directory.
+
+```
+npm run test
+```
+
+to run unit tests.
+
+### The Cycle
+
+You can test your changes either by updating tests, or by editing and playing around in the docs/index.htm demo page. If contributing a change, please do both.
+
+Because of module imports, the page works best if you use a simple HTTP server (not included here) to host it on localhost. If you have Python installed, run this in the top level of this repo.
+
+```
+python3 -m http.server 8000
+```
+
+Then, open http://localhost:8000/docs in a browser. There is no auto-reload.
+
+**Any changes to the HTML** require a browser refresh.
+
+**Any changes to bounce-type itself** require a rebuild of the package and a refresh.
+
+If changes involving imports are to be tested, a local copy of this repo can be installed in another local npm repo using `npm install /path/to/bounce-keys.js` in that repo. Ensure the path points to this repo's top level, where package.json is located.
