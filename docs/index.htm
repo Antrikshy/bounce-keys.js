@@ -26,17 +26,23 @@
     });
   </script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Sintony&display=swap');
+
     body {
+      height: 100vh;
       margin: 0 10%;
       font-size: 16px;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-family: "Sintony", sans-serif;
       background: linear-gradient(45deg, #cf3f49, #872271);
-      color: white;
+      color: #fff;
       > .demo {
-        height: 100vh;
+        height: calc(100% - 2rem);  /* Room for footer */
         display: grid;
         grid-template-columns: 1fr 1fr;
       }
+    }
+    code {
+      font-family: "Fragment Mono", monospace;
     }
     section.left {
       display: flex;
@@ -63,6 +69,16 @@
       align-items: center;
       justify-content: center;
       overflow-y: scroll;
+      font-family: "Fragment Mono", monospace;
+    }
+    footer {
+      height: 1.5rem;
+      padding-bottom: 0.5rem;
+      text-align: center;
+      font-size: smaller;
+      a {
+        color: #fff;
+      }
     }
   </style>
 </head>
@@ -90,4 +106,8 @@
     <section class="right">
     </section>
   </div>
+  <footer>
+    Maintained by <a href="https://antrikshy.com" target="_blank">Antriksh Yadav</a>.
+    Documentation and source on <a href="https://github.com/Antrikshy/bounce-keys.js" target="_blank">GitHub</a>.
+  </footer>
 </body>
