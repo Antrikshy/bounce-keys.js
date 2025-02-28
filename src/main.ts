@@ -8,11 +8,15 @@ export interface BounceKeysProps {
   // List of key codes to ignore bounce behavior on
   // Refer to: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
   ignoredKeyCodes?: Set<string> | string[];
+  // Setting to true will emit events from the target element (ex. input)
+  // when keypresses are blocked
+  shouldEmitBlockEvents?: boolean;
 };
 
 export class BounceKeys {
   private readonly bounceWindow: number;
   private readonly repeatOnly: boolean;
+  private readonly shouldEmitBlockEvents: boolean;
   private readonly ignoredKeyCodes: Set<string>;
 
   private debounceMap: Record<string, number> = {};
@@ -21,6 +25,7 @@ export class BounceKeys {
   public constructor(props: BounceKeysProps) {
     this.bounceWindow = props.bounceWindow;
     this.repeatOnly = !!props.repeatOnly;
+    this.shouldEmitBlockEvents = !!props.shouldEmitBlockEvents;
     this.ignoredKeyCodes = new Set(props.ignoredKeyCodes);
   }
 
@@ -41,6 +46,11 @@ export class BounceKeys {
       !(this.ignoredKeyCodes.has(currentPressKeyCode))
     ) {
       e.preventDefault();
+      if (this.shouldEmitBlockEvents) {
+        e.target.dispatchEvent(new CustomEvent("bounce-keys:blocked", {
+          detail: { code: currentPressKeyCode }
+        }));
+      }
     }
 
     // Update memory

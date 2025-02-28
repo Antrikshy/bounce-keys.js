@@ -62,6 +62,28 @@ describe("Basic usage, without optional props", async () => {
       assert.equal(keyPress2.defaultPrevented, false);
     }, 2000);
   });
+
+  it("emits custom events", async () => {
+    // Setup
+    const underTest = new BounceKeys({ bounceWindow: 100, shouldEmitBlockEvents: true });
+    const { window, document } = testEnvWithInput();
+    const inputEl = document.querySelector("input");
+    global.CustomEvent = window.CustomEvent;
+    let capturedEvent = null;
+    inputEl.addEventListener("keydown", underTest);
+    inputEl.addEventListener("bounce-keys:blocked", event => {
+      capturedEvent = event;
+    });
+
+    // Execution
+    inputEl.dispatchEvent(keydownEvent(window, "KeyA"));
+    inputEl.dispatchEvent(keydownEvent(window, "KeyA"));
+
+    // Assertions
+    assert.notEqual(capturedEvent, null);
+    assert.equal(capturedEvent.type, "bounce-keys:blocked");
+    assert.equal(capturedEvent.detail.code, "KeyA");
+  });
 });
 
 describe("With repeatOnly enabled", async () => {
