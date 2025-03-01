@@ -21,8 +21,9 @@
   },
   "author": "Antriksh Yadav",
   "license": "ISC",
+  "homepage": "https://antrikshy.com/bounce-keys.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Antrikshy/bounce-keys-js.git"
+    "url": "git+https://github.com/Antrikshy/bounce-keys.js.git"
   }
 }
